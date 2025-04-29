@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App03GamingSpringBeans",
+            "request": "launch",
+            "mainClass": "com.AmrSaleh.learning_spring_framework.App03GamingSpringBeans",
+            "projectName": "learning-spring-framework"
+        },
+        {
+            "type": "java",
+            "name": "App02HelloWorldSpring",
+            "request": "launch",
+            "mainClass": "com.AmrSaleh.learning_spring_framework.helloworld.App02HelloWorldSpring",
+            "projectName": "learning-spring-framework"
+        },
+        {
+            "type": "java",
+            "name": "App02HelloWorldSpring",
+            "request": "launch",
+            "mainClass": "com.AmrSaleh.learning_spring_framework.App02HelloWorldSpring",
+            "projectName": "learning-spring-framework"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-App01GamingBasicJava<learning-spring-framework>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.AmrSaleh.learning_spring_framework.App01GamingBasicJava",
+            "projectName": "learning-spring-framework",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
