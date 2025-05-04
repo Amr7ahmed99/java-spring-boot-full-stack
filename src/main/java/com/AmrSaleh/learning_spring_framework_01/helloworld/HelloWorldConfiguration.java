@@ -1,4 +1,4 @@
-package com.AmrSaleh.learning_spring_framework.helloworld;
+package com.AmrSaleh.learning_spring_framework_01.helloworld;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

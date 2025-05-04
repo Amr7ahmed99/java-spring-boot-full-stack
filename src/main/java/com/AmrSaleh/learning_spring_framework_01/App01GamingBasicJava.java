@@ -1,7 +1,7 @@
-package com.AmrSaleh.learning_spring_framework;
+package com.AmrSaleh.learning_spring_framework_01;
 
-import com.AmrSaleh.learning_spring_framework.game.GameRunner;
-import com.AmrSaleh.learning_spring_framework.game.SuperContraGame;
+import com.AmrSaleh.learning_spring_framework_01.game.GameRunner;
+import com.AmrSaleh.learning_spring_framework_01.game.SuperContraGame;
 
 public class App01GamingBasicJava {
 	public static void main(String[] args) {

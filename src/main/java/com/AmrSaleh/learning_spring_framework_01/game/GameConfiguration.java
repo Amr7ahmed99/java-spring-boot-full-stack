@@ -1,11 +1,7 @@
-package com.AmrSaleh.learning_spring_framework;
+package com.AmrSaleh.learning_spring_framework_01.game;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.AmrSaleh.learning_spring_framework.game.GameConsole;
-import com.AmrSaleh.learning_spring_framework.game.GameRunner;
-import com.AmrSaleh.learning_spring_framework.game.PacManGame;
 
 @Configuration
 public class GameConfiguration {

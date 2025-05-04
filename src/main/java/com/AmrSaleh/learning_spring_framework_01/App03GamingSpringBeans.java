@@ -1,11 +1,12 @@
-package com.AmrSaleh.learning_spring_framework;
+package com.AmrSaleh.learning_spring_framework_01;
 
 import java.util.Arrays;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.AmrSaleh.learning_spring_framework.game.GameConsole;
-import com.AmrSaleh.learning_spring_framework.game.GameRunner;
+import com.AmrSaleh.learning_spring_framework_01.game.GameConfiguration;
+import com.AmrSaleh.learning_spring_framework_01.game.GameConsole;
+import com.AmrSaleh.learning_spring_framework_01.game.GameRunner;
 
 public class App03GamingSpringBeans {
 	public static void main(String[] args) {

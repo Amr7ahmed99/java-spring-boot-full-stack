@@ -1,4 +1,5 @@
-package com.AmrSaleh.learning_spring_framework.game;
+package com.AmrSaleh.learning_spring_framework_01.game;
+
 
 public class PacManGame implements GameConsole{
 	public PacManGame(){}
