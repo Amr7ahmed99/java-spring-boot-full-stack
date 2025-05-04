@@ -2,31 +2,45 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App02HelloWorldSpring",
+            "request": "launch",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_01.helloworld.App02HelloWorldSpring",
+            "projectName": "learning-spring-framework"
+        },
+        {
+            "type": "java",
             "name": "App03GamingSpringBeans",
             "request": "launch",
-            "mainClass": "com.AmrSaleh.learning_spring_framework.App03GamingSpringBeans",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_01.App03GamingSpringBeans",
             "projectName": "learning-spring-framework"
         },
         {
             "type": "java",
-            "name": "App02HelloWorldSpring",
+            "name": "App01GamingBasicJava",
             "request": "launch",
-            "mainClass": "com.AmrSaleh.learning_spring_framework.helloworld.App02HelloWorldSpring",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_01.App01GamingBasicJava",
             "projectName": "learning-spring-framework"
         },
         {
             "type": "java",
-            "name": "App02HelloWorldSpring",
+            "name": "GamingAppLauncherApplication",
             "request": "launch",
-            "mainClass": "com.AmrSaleh.learning_spring_framework.App02HelloWorldSpring",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_02.GamingAppLauncherApplication",
             "projectName": "learning-spring-framework"
         },
         {
             "type": "java",
-            "name": "Spring Boot-App01GamingBasicJava<learning-spring-framework>",
+            "name": "App01GamingBasicJava",
+            "request": "launch",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_02.App01GamingBasicJava",
+            "projectName": "learning-spring-framework"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GamingAppLauncherApplication<learning-spring-framework>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.AmrSaleh.learning_spring_framework.App01GamingBasicJava",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_02.GamingAppLauncherApplication",
             "projectName": "learning-spring-framework",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
