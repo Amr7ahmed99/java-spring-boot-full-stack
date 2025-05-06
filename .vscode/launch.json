@@ -4,6 +4,13 @@
             "type": "java",
             "name": "SimpleSpringContextLauncherApplication",
             "request": "launch",
+            "mainClass": "com.AmrSaleh.learning_spring_framework_02.d1.SimpleSpringContextLauncherApplication",
+            "projectName": "learning-spring-framework"
+        },
+        {
+            "type": "java",
+            "name": "SimpleSpringContextLauncherApplication",
+            "request": "launch",
             "mainClass": "com.AmrSaleh.learning_spring_framework_02.c1.SimpleSpringContextLauncherApplication",
             "projectName": "learning-spring-framework"
         },
