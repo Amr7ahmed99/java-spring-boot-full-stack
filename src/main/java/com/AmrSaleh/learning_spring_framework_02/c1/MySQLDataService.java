@@ -2,8 +2,10 @@ package com.AmrSaleh.learning_spring_framework_02.c1;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+//@Component
+@Repository
 @Qualifier("MySQLDataService")
 public class MySQLDataService  implements DataService {
     @Override
