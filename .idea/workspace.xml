@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c157ef2b-1533-4e22-b59a-dfd4385f6384" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/App01GamingBasicJava.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/App03GamingSpringBeans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/game/GameConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/game/GameConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/game/GameRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/game/MarioGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/game/PacManGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/game/SuperContraGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/helloworld/App02HelloWorldSpring.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_01/helloworld/HelloWorldConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/GamingAppLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/a0/SimpleSpringContextLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/a1/DepInjectionLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/c1/BusinessCalculationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/c1/DataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/c1/MongoDbDataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/c1/MySQLDataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/c1/SimpleSpringContextLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/d1/SimpleSpringContextLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/e1/BeanScopesLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/f1/PrePostAnnotationsContextLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/g1/CDIContextLauncherApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/game/GameConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/game/GameRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/game/MarioGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/game/PacManGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/AmrSaleh/learning_spring_framework/LearningSpringFrameworkApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2wiTDlJJErPtBYkRm8yiwt8Ml18" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BeanScopesLauncherApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.BeanScopesLauncherApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CDIContextLauncherApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.CDIContextLauncherApplication (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.CDIContextLauncherApplication (3).executor&quot;: &quot;Run&quot;,
+    &quot;Application.CDIContextLauncherApplication (4).executor&quot;: &quot;Run&quot;,
+    &quot;Application.CDIContextLauncherApplication (5).executor&quot;: &quot;Run&quot;,
+    &quot;Application.CDIContextLauncherApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DepInjectionLauncherApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.DepInjectionLauncherApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PrePostAnnotationsContextLauncherApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.PrePostAnnotationsContextLauncherApplication (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.PrePostAnnotationsContextLauncherApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SimpleSpringContextLauncherApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.AmrSaleh.learning_spring_framework_02.c1.SimpleSpringContextLauncherApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.learning-spring-framework [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.learning-spring-framework [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.learning-spring-framework [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.learning-spring-framework [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.learning-spring-framework [verify].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;create-and-manage-beans&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/amr-saleh/Desktop/java-spring-boot-full-stack/2-springboot&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2-springboot" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02.g1" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/AmrSaleh/learning_spring_framework_02/e1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2-springboot" />
+      <recent name="$PROJECT_DIR$/1-spring" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.DepInjectionLauncherApplication (1)">
+    <configuration name="CDIContextLauncherApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AmrSaleh.learning_spring_framework_02.g1.CDIContextLauncherApplication" />
+      <module name="learning-spring-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AmrSaleh.learning_spring_framework_02.g1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CDIContextLauncherApplication (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AmrSaleh.learning_spring_framework_02.g1.CDIContextLauncherApplication" />
+      <module name="learning-spring-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AmrSaleh.learning_spring_framework_02.g1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DepInjectionLauncherApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AmrSaleh.learning_spring_framework_02.a1.DepInjectionLauncherApplication" />
+      <module name="learning-spring-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AmrSaleh.learning_spring_framework_02.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DepInjectionLauncherApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AmrSaleh.learning_spring_framework_02.a1.DepInjectionLauncherApplication" />
+      <module name="learning-spring-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AmrSaleh.learning_spring_framework_02.a1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleSpringContextLauncherApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AmrSaleh.learning_spring_framework_02.c1.SimpleSpringContextLauncherApplication" />
+      <module name="learning-spring-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AmrSaleh.learning_spring_framework_02.c1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DepInjectionLauncherApplication (1)" />
+        <item itemvalue="Application.SimpleSpringContextLauncherApplication" />
+        <item itemvalue="Application.DepInjectionLauncherApplication" />
+        <item itemvalue="Application.CDIContextLauncherApplication (1)" />
+        <item itemvalue="Application.CDIContextLauncherApplication (3)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c157ef2b-1533-4e22-b59a-dfd4385f6384" name="Changes" comment="" />
+      <created>1746523276520</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746523276520</updated>
+    </task>
+    <servers />
+  </component>
+</project>
