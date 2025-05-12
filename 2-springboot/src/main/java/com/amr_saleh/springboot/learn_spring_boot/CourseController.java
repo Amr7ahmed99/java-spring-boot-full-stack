@@ -13,7 +13,8 @@ public class CourseController {
     private List<Course> listCourses(){
         return Arrays.asList(
                 new Course(1, "SpringBoot", "Amr-Saleh"),
-                new Course(2, "GoLang", "Amr-Saleh")
+                new Course(2, "GoLang", "Amr-Saleh"),
+                new Course(3, "Php", "Amr-Saleh")
         );
     }
 }
