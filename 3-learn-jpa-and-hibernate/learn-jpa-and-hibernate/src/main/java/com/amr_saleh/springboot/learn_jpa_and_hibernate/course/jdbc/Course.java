@@ -1,4 +1,4 @@
-package com.amr_saleh.springboot.learn_jpa_and_hibernate.course;
+package com.amr_saleh.springboot.learn_jpa_and_hibernate.course.jdbc;
 
 public class Course {
     private long id;
