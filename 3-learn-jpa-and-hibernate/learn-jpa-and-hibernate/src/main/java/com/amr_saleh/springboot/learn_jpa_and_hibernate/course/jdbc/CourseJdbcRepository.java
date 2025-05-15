@@ -1,9 +1,11 @@
-package com.amr_saleh.springboot.learn_jpa_and_hibernate.course;
+package com.amr_saleh.springboot.learn_jpa_and_hibernate.course.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.amr_saleh.springboot.learn_jpa_and_hibernate.course.jpa.Course;
 
 @Repository
 public class CourseJdbcRepository {
