@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import com.amr_saleh.springboot.learn_jpa_and_hibernate.course.jdbc.CourseJdbcRepository;
 import com.amr_saleh.springboot.learn_jpa_and_hibernate.course.jpa.Course;
 import com.amr_saleh.springboot.learn_jpa_and_hibernate.course.jpa.CourseJpaRepository;
-import com.amr_saleh.springboot.learn_jpa_and_hibernate.course.springdatajpa.SpringDataJpaRepository;
+import com.amr_saleh.springboot.learn_jpa_and_hibernate.course.springdatajpa.CourseSpringDataJpaRepository;
 
 @Component
 public class CourseCommandRunner implements CommandLineRunner {
@@ -21,7 +21,7 @@ public class CourseCommandRunner implements CommandLineRunner {
     // private CourseJpaRepository repository;
 
     @Autowired
-    private SpringDataJpaRepository repository;
+    private CourseSpringDataJpaRepository repository;
 
     @Override
     public void run(String... args) throws Exception {
