@@ -39,4 +39,14 @@ public class UserDaoService {
         Predicate<? super User> predicate= user -> user.getId() == id;
         return users.removeIf(predicate);
     }
+
+    public User updateUser(int id, User user) {
+        Predicate<? super User> predicate= rec -> rec.getId() == id;
+        User existingUser = users.stream().filter(predicate).findFirst().orElse(null);
+        if (existingUser != null) {
+            existingUser.setName(user.getName());
+            existingUser.setDateOfBirth(user.getDateOfBirth());
+        }
+        return existingUser;
+    }
 }
