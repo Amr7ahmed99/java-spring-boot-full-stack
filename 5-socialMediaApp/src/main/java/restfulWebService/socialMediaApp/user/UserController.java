@@ -4,8 +4,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import jakarta.validation.Valid;
 import java.util.ArrayList;
+import java.util.Locale;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,30 +21,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
-    private UserDaoService userDaoService;
+    private final UserDaoService userDaoService;
 
-    public UserController(UserDaoService userDaoService) {
+    private final MessageSource messageSource;
+
+    public UserController(UserDaoService userDaoService, MessageSource messageSource) {
         this.userDaoService = userDaoService;
+        this.messageSource = messageSource;
     }
 
-    @RequestMapping(path = "/users", method=RequestMethod.GET)
+    @GetMapping
     public ArrayList<User> getAllUsers() {
         return userDaoService.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public User getUser(@PathVariable int id) {
         var user= this.userDaoService.findUserById(id);
         if (user == null) {
-            throw new UserNotFoundException("user not found with id: " + id);
+            String errMessage= getMessage("user.not.found", "user not found with id: " + id, id);
+            throw new UserNotFoundException(errMessage);
         }
 
         return user;
     }
 
-    @PostMapping("users")
+    @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         var savedUser= this.userDaoService.save(user);
         // Apply HATEOAS principles
@@ -54,25 +61,30 @@ public class UserController {
         return ResponseEntity.created(location).build();
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable int id) {
         var isDeleted= this.userDaoService.deleteById(id);
         if (!isDeleted) {
-            throw new UserNotFoundException(String.format("can not delete, user not found with id %d",id));
+            String errMessage= getMessage("failed.to.delete.user.not.found", "failed to delete, user not found with id: " + id, id);
+            throw new UserNotFoundException(errMessage);
         }
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping("users/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<Void> updateUser(@PathVariable int id, @RequestBody User user) {
         User updatedUser= this.userDaoService.updateUser(id, user);
         if (updatedUser == null) {
-            throw new UserNotFoundException(String.format("can not update, user not found with id %d",id));
+            String errMessage= getMessage("failed.to.update.user.not.found", "failed to update, user not found with id: " + id, id);
+            throw new UserNotFoundException(errMessage);
         }
         
         return ResponseEntity.noContent().build();
     }
-    
-    
+
+    private String getMessage(String key, String defaultMessage, Object... args) {
+        Locale locale = LocaleContextHolder.getLocale();
+        return messageSource.getMessage(key, args, defaultMessage, locale);
+    }
     
 }
