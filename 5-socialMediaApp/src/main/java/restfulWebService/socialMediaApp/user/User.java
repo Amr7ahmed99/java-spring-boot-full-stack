@@ -2,9 +2,20 @@ package restfulWebService.socialMediaApp.user;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
+@JsonInclude(JsonInclude.Include.NON_NULL) // This will exclude null fields from the JSON response
+// This annotation is used to control the serialization of the User class to JSON.
+//// It ensures that only non-null fields are included in the JSON representation of the User object.
 public class User {
+    
     private int id;
+    @Size(min = 2, message = "Name must be at least 2 characters")
     private String name;
+    @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
     
     public User() {
