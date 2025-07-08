@@ -15,9 +15,9 @@ public class UserDaoService {
     private static int usersCount = 0;
 
     static {
-        users.add(new User(++usersCount, "John Doe", LocalDate.of(1990, 1, 1)));
-        users.add(new User(++usersCount, "Jane Smith", LocalDate.of(1992, 2, 2)));
-        users.add(new User(++usersCount, "Alice Johnson", LocalDate.of(1988, 3, 3)));
+        users.add(new User(++usersCount, "John Doe", LocalDate.of(1990, 1, 1), "email@gmail.com", "123456"));
+        users.add(new User(++usersCount, "Jane Smith", LocalDate.of(1992, 2, 2), "email@gmail.com", "123456"));
+        users.add(new User(++usersCount, "Alice Johnson", LocalDate.of(1988, 3, 3), "email@gmail.com", "123456"));
     }
 
     public ArrayList<User> findAll() {
