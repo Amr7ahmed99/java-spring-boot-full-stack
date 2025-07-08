@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import restfulWebService.socialMediaApp.utils.ResponseMessage;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
 @RequestMapping("/users")
@@ -33,24 +36,28 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable int id) {
+    public EntityModel<User> getUser(@PathVariable int id) {
         var user= this.userDaoService.findUserById(id);
         if (user == null) {
             String errMessage= this.responseMessage.getMessage("user.not.found", "user not found with id: " + id, id);
             throw new UserNotFoundException(errMessage);
         }
-
-        return user;
+        // using spring HATEOAS to add links to the user entity
+        // this allows the client to navigate to related resources easily
+        // for example, we can add a link to get all users
+        // this is useful for building RESTful APIs that are easy to use and navigate
+        // and also to follow the HATEOAS principle (Hypermedia as the Engine of Application State)
+        
+        EntityModel<User> entityModel = EntityModel.of(user);
+        WebMvcLinkBuilder link =  linkTo(methodOn(this.getClass()).getAllUsers());
+        entityModel.add(link.withRel("all-users"));
+        
+        return entityModel;
     }
 
     @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         var savedUser= this.userDaoService.save(user);
-        // Apply HATEOAS principles
-        // Instead of returning the user object directly, we can return a ResponseEntity with a location header
-        // This location header will point to the newly created resource
-        // For example, if the user has an ID of 1, the location header will be set to /users/1
-        // return ResponseEntity.created(URI.create("/users/" + user.getId())).build();
         var location= ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
