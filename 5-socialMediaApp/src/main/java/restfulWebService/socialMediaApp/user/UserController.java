@@ -2,13 +2,20 @@ package restfulWebService.socialMediaApp.user;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+
 import jakarta.validation.Valid;
 import restfulWebService.socialMediaApp.utils.ResponseMessage;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -31,12 +38,17 @@ public class UserController {
     }
 
     @GetMapping
-    public ArrayList<User> getAllUsers() {
-        return userDaoService.findAll();
+    public ResponseEntity<MappingJacksonValue> getAllUsers() {
+        List<User> users = this.userDaoService.findAll();
+
+        MappingJacksonValue mapping = new MappingJacksonValue(users);
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "dateOfBirth", "full_name");
+        mapping.setFilters(new SimpleFilterProvider().addFilter("UserFilter", filter));
+        return ResponseEntity.ok(mapping);
     }
 
     @GetMapping("/{id}")
-    public EntityModel<User> getUser(@PathVariable int id) {
+    public ResponseEntity<MappingJacksonValue> getUser(@PathVariable int id) {
         var user= this.userDaoService.findUserById(id);
         if (user == null) {
             String errMessage= this.responseMessage.getMessage("user.not.found", "user not found with id: " + id, id);
@@ -51,8 +63,14 @@ public class UserController {
         EntityModel<User> entityModel = EntityModel.of(user);
         WebMvcLinkBuilder link =  linkTo(methodOn(this.getClass()).getAllUsers());
         entityModel.add(link.withRel("all-users"));
+
+
+        MappingJacksonValue mapping= new MappingJacksonValue(entityModel);
+        SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("id", "full_name", "dateOfBirth", "email");
+        mapping.setFilters(new SimpleFilterProvider().addFilter("UserFilter", filter));
+
         
-        return entityModel;
+        return ResponseEntity.ok(mapping);
     }
 
     @PostMapping
