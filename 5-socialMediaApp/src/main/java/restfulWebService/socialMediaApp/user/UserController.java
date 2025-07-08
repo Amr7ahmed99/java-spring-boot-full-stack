@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
 import jakarta.validation.Valid;
+import restfulWebService.socialMediaApp.Dtos.GetUserDto;
 import restfulWebService.socialMediaApp.utils.ResponseMessage;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MappingJacksonValue> getUser(@PathVariable int id) {
+    public ResponseEntity<EntityModel<GetUserDto>> getUser(@PathVariable int id) {
         var user= this.userDaoService.findUserById(id);
         if (user == null) {
             String errMessage= this.responseMessage.getMessage("user.not.found", "user not found with id: " + id, id);
@@ -60,17 +60,12 @@ public class UserController {
         // this is useful for building RESTful APIs that are easy to use and navigate
         // and also to follow the HATEOAS principle (Hypermedia as the Engine of Application State)
         
-        EntityModel<User> entityModel = EntityModel.of(user);
+        GetUserDto getUserDto = new GetUserDto(user.getId(), user.getName(), user.getDateOfBirth().toString(), user.getEmail());
+        EntityModel<GetUserDto> entityModel = EntityModel.of(getUserDto);
         WebMvcLinkBuilder link =  linkTo(methodOn(this.getClass()).getAllUsers());
         entityModel.add(link.withRel("all-users"));
 
-
-        MappingJacksonValue mapping= new MappingJacksonValue(entityModel);
-        SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("id", "full_name", "dateOfBirth", "email");
-        mapping.setFilters(new SimpleFilterProvider().addFilter("UserFilter", filter));
-
-        
-        return ResponseEntity.ok(mapping);
+        return ResponseEntity.ok(entityModel);
     }
 
     @PostMapping
