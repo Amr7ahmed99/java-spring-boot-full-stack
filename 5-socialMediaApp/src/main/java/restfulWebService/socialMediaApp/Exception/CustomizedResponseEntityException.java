@@ -1,6 +1,7 @@
 package restfulWebService.socialMediaApp.Exception;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -35,9 +36,19 @@ public class CustomizedResponseEntityException extends ResponseEntityExceptionHa
     }
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(ex.getFieldError().getDefaultMessage(), request.getDescription(false), LocalDateTime.now());
-        return new ResponseEntity<Object>(errorDetails, HttpStatus.BAD_REQUEST);
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+        MethodArgumentNotValidException ex, HttpHeaders headers, 
+        HttpStatusCode status, WebRequest request) {
+
+        List<String> errors = ex.getBindingResult()
+                                .getFieldErrors()
+                                .stream()
+                                .map(err -> err.getField() + ": " + err.getDefaultMessage())
+                                .toList();
+
+        ErrorDetails errorDetails = new ErrorDetails("Validation Failed", errors.toString(), LocalDateTime.now());
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
     
 
