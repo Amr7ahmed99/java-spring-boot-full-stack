@@ -1,4 +1,4 @@
-package restfulWebService.socialMediaApp.user;
+package restfulWebService.socialMediaApp.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -9,6 +9,11 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import jakarta.validation.Valid;
 import restfulWebService.socialMediaApp.Dtos.GetUserDTO;
 import restfulWebService.socialMediaApp.Dtos.PartialUserUpdateDTO;
+import restfulWebService.socialMediaApp.exception.UserNotFoundException;
+import restfulWebService.socialMediaApp.models.Post;
+import restfulWebService.socialMediaApp.models.User;
+import restfulWebService.socialMediaApp.service.PostDaoService;
+import restfulWebService.socialMediaApp.service.UserDaoService;
 import restfulWebService.socialMediaApp.utils.ResponseMessage;
 import java.util.List;
 
@@ -30,12 +35,14 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 public class UserController {
 
     private final UserDaoService userDaoService;
-
     private final ResponseMessage responseMessage;
+    private final PostDaoService postDaoService;
 
-    public UserController(UserDaoService userDaoService, ResponseMessage responseMessage) {
+
+    public UserController(UserDaoService userDaoService, ResponseMessage responseMessage, PostDaoService postDaoService) {
         this.userDaoService = userDaoService;
         this.responseMessage = responseMessage;
+        this.postDaoService = postDaoService;
     }
 
     @GetMapping
@@ -97,6 +104,31 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{id}/posts")
+    public ResponseEntity<List<Post>> getUserPosts(@PathVariable int id) {
+
+        // check if userId is valid
+        User user= this.userDaoService.findUserById(id);
+        if (user == null) {
+            String errMessage= this.responseMessage.getMessage("user.not.found", "user not found with id: " + id, id);
+            throw new UserNotFoundException(errMessage);
+        }
+        
+        return ResponseEntity.ok(user.getPosts());
+    }
     
-    
+
+    @PostMapping("/{id}/posts")
+    public ResponseEntity<User> createPostForUser(@PathVariable int id, @Valid @RequestBody Post post) {
+        User user= this.userDaoService.findUserById(id);
+        if (user == null) {
+            String errMessage= this.responseMessage.getMessage("user.not.found", "user not found with id: " + id, id);
+            throw new UserNotFoundException(errMessage);
+        }
+        post.setId(null);
+        post.setUser(user);
+        Post savedPost = this.postDaoService.save(post);
+        var location= ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedPost.getId()).toUri();
+        return ResponseEntity.created(location).build();
+    }
 }

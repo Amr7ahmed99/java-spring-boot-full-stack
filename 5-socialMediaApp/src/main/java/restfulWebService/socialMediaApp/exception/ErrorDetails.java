@@ -1,4 +1,4 @@
-package restfulWebService.socialMediaApp.Exception;
+package restfulWebService.socialMediaApp.exception;
 
 import java.time.LocalDateTime;
 
