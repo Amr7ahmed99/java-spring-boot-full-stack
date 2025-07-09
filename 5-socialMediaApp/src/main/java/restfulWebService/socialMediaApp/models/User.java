@@ -1,12 +1,16 @@
-package restfulWebService.socialMediaApp.user;
+package restfulWebService.socialMediaApp.models;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -19,8 +23,8 @@ import jakarta.validation.constraints.Size;
 public class User {
     
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    private Integer id;
     @Size(min = 2, message = "Name must be at least 2 characters")
     @JsonProperty("full_name") // This annotation is used to change the name of the field in the JSON response
     private String name;
@@ -30,6 +34,9 @@ public class User {
     private String email;
     // @JsonIgnore // This annotation is used to ignore the password field during serialization
     private String password;
+    @OneToMany(mappedBy = "user") // This annotation is used to define a one-to-many relationship with the Post entity
+    @JsonIgnore
+    private List<Post> posts; // Assuming a User can have multiple posts
 
     public User() {
         super();
@@ -74,6 +81,12 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public List<Post> getPosts() {
+        return posts;
+    }
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
     @Override
     public String toString() {

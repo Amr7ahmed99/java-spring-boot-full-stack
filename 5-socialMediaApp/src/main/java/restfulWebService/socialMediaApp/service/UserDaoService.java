@@ -1,19 +1,14 @@
-package restfulWebService.socialMediaApp.user;
+package restfulWebService.socialMediaApp.service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-
-import org.springframework.data.repository.query.parser.Part;
 import org.springframework.stereotype.Service;
-
 import restfulWebService.socialMediaApp.Dtos.PartialUserUpdateDTO;
+import restfulWebService.socialMediaApp.models.User;
+import restfulWebService.socialMediaApp.repository.UserRepository;
 
 @Service
 public class UserDaoService {
     // This class will handle the data access logic for User entities.
-    // It will interact with the database to perform CRUD operations.
 
     private UserRepository userRepository;
 

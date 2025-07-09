@@ -1,4 +1,4 @@
-package restfulWebService.socialMediaApp.Exception;
+package restfulWebService.socialMediaApp.exception;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import restfulWebService.socialMediaApp.user.UserNotFoundException;
-
 import org.springframework.http.HttpHeaders;
 
 @ControllerAdvice // This annotation allows us to handle exceptions globally across all controllers
