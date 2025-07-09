@@ -1,12 +1,13 @@
 package restfulWebService.socialMediaApp.user;
 
 import java.time.LocalDate;
-
 import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -14,14 +15,18 @@ import jakarta.validation.constraints.Size;
 // This annotation is used to control the serialization of the User class to JSON.
 //// It ensures that only non-null fields are included in the JSON representation of the User object.
 @JsonFilter("UserFilter") // This annotation is used to filter the fields of the User class during serialization
+@Entity(name = "user_details") // This annotation is used to specify the name of the entity in the database
 public class User {
     
+    @Id
+    @GeneratedValue
     private int id;
     @Size(min = 2, message = "Name must be at least 2 characters")
     @JsonProperty("full_name") // This annotation is used to change the name of the field in the JSON response
     private String name;
     @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
+    @Email(message = "Invalid email format")
     private String email;
     // @JsonIgnore // This annotation is used to ignore the password field during serialization
     private String password;

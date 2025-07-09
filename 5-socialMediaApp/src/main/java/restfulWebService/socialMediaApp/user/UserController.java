@@ -7,7 +7,8 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
 import jakarta.validation.Valid;
-import restfulWebService.socialMediaApp.Dtos.GetUserDto;
+import restfulWebService.socialMediaApp.Dtos.GetUserDTO;
+import restfulWebService.socialMediaApp.Dtos.PartialUserUpdateDTO;
 import restfulWebService.socialMediaApp.utils.ResponseMessage;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EntityModel<GetUserDto>> getUser(@PathVariable int id) {
+    public ResponseEntity<EntityModel<GetUserDTO>> getUser(@PathVariable int id) {
         var user= this.userDaoService.findUserById(id);
         if (user == null) {
             String errMessage= this.responseMessage.getMessage("user.not.found", "user not found with id: " + id, id);
@@ -60,8 +61,8 @@ public class UserController {
         // this is useful for building RESTful APIs that are easy to use and navigate
         // and also to follow the HATEOAS principle (Hypermedia as the Engine of Application State)
         
-        GetUserDto getUserDto = new GetUserDto(user.getId(), user.getName(), user.getDateOfBirth().toString(), user.getEmail());
-        EntityModel<GetUserDto> entityModel = EntityModel.of(getUserDto);
+        GetUserDTO getUserDto = new GetUserDTO(user.getId(), user.getName(), user.getDateOfBirth().toString(), user.getEmail());
+        EntityModel<GetUserDTO> entityModel = EntityModel.of(getUserDto);
         WebMvcLinkBuilder link =  linkTo(methodOn(this.getClass()).getAllUsers());
         entityModel.add(link.withRel("all-users"));
 
@@ -86,8 +87,8 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Void> updateUser(@PathVariable int id, @RequestBody User user) {
-        User updatedUser= this.userDaoService.updateUser(id, user);
+    public ResponseEntity<Void> updateUser(@PathVariable int id, @Valid @RequestBody PartialUserUpdateDTO partialUserUpdateDTO) {
+        User updatedUser= this.userDaoService.updateUser(id, partialUserUpdateDTO);
         if (updatedUser == null) {
             String errMessage= this.responseMessage.getMessage("failed.to.update.user.not.found", "failed to update, user not found with id: " + id, id);
             throw new UserNotFoundException(errMessage);

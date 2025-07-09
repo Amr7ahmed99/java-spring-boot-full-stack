@@ -2,51 +2,60 @@ package restfulWebService.socialMediaApp.user;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
+import org.springframework.data.repository.query.parser.Part;
 import org.springframework.stereotype.Service;
+
+import restfulWebService.socialMediaApp.Dtos.PartialUserUpdateDTO;
 
 @Service
 public class UserDaoService {
     // This class will handle the data access logic for User entities.
     // It will interact with the database to perform CRUD operations.
 
-    private static ArrayList<User> users= new ArrayList<>();
-    private static int usersCount = 0;
+    private UserRepository userRepository;
 
-    static {
-        users.add(new User(++usersCount, "John Doe", LocalDate.of(1990, 1, 1), "email@gmail.com", "123456"));
-        users.add(new User(++usersCount, "Jane Smith", LocalDate.of(1992, 2, 2), "email@gmail.com", "123456"));
-        users.add(new User(++usersCount, "Alice Johnson", LocalDate.of(1988, 3, 3), "email@gmail.com", "123456"));
+    public UserDaoService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public ArrayList<User> findAll() {
-        return users;
+    public List<User> findAll() {
+        return this.userRepository.findAll();
     }
 
     public User findUserById(int id) {
-        Predicate<? super User> predicate= user -> user.getId() == id;
-        return users.stream().filter(predicate).findFirst().orElse(null);
+        return this.userRepository.findById(id).orElse(null);
     }
 
     public User save(User user) {
-        user.setId(++usersCount);
-        users.add(user);
-        return user;
+        return this.userRepository.save(user);
     }
 
     public boolean deleteById(int id) {
-        Predicate<? super User> predicate= user -> user.getId() == id;
-        return users.removeIf(predicate);
+        this.findUserById(id);
+        if (this.findUserById(id) == null) {
+            return false;
+        }
+        this.userRepository.deleteById(id);
+        return true;
     }
 
-    public User updateUser(int id, User user) {
-        Predicate<? super User> predicate= rec -> rec.getId() == id;
-        User existingUser = users.stream().filter(predicate).findFirst().orElse(null);
-        if (existingUser != null) {
-            existingUser.setName(user.getName());
-            existingUser.setDateOfBirth(user.getDateOfBirth());
+    public User updateUser(int id, PartialUserUpdateDTO partialUserUpdateDTO) {
+        User fetchedUser= this.findUserById(id);
+        if (fetchedUser == null) {
+            return null; // User not found
         }
-        return existingUser;
+        User user = new User(
+                fetchedUser.getId(),
+                partialUserUpdateDTO.getFullName() != null ? partialUserUpdateDTO.getFullName() : fetchedUser.getName(),
+                partialUserUpdateDTO.getDateOfBirth() != null ? partialUserUpdateDTO.getDateOfBirth() : fetchedUser.getDateOfBirth(),
+                partialUserUpdateDTO.getEmail() != null ? partialUserUpdateDTO.getEmail() : fetchedUser.getEmail(),
+                fetchedUser.getPassword() // Assuming password should not be changed
+        );
+        this.save(user);
+
+        return user;
     }
 }
