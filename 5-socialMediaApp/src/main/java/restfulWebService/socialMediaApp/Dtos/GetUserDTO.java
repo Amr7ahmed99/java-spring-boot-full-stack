@@ -1,12 +1,12 @@
 package restfulWebService.socialMediaApp.Dtos;
 
-public class GetUserDto {
+public class GetUserDTO {
     private int id;
     private String fullName;
     private String dateOfBirth;
     private String email;
 
-    public GetUserDto(int id, String fullName, String dateOfBirth, String email) {
+    public GetUserDTO(int id, String fullName, String dateOfBirth, String email) {
         this.id = id;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
