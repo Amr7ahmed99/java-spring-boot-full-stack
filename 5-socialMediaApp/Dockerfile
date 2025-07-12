@@ -1,4 +1,10 @@
+FROM maven:3.8.6-openjdk-18-slim AS build
+WORKDIR /home/socialMediaApp
+COPY . /home/socialMediaApp/
+RUN mvn -f /home/socialMediaApp/pom.xml clean package
+
+
 FROM openjdk:18-slim-buster
-COPY target/*.jar socialMediaApp-0.0.1-SNAPSHOT.jar
+COPY --from=build /home/socialMediaApp/target/*.jar socialMediaApp-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT [ "java", "-jar", "/socialMediaApp-0.0.1-SNAPSHOT.jar" ]
+ENTRYPOINT [ "sh", "-c", "java -jar /socialMediaApp-0.0.1-SNAPSHOT.jar" ]
