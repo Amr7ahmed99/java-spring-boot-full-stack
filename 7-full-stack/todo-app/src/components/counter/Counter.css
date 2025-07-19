@@ -1,0 +1,28 @@
+button {
+    font-size:16px;
+    width:100px;
+    margin:10px;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    border-color: black;
+    border-width: 5px;
+}
+
+.counter-increment {
+    background-color: #00a5ab;
+}
+
+.counter-decrement{
+    background-color: #00a5ab;
+}
+
+.reset-button {
+    background-color: #824f8c;
+}
+
+.counter-value {
+    font-size: 50px;
+    padding: 20px;
+    margin: 20px;
+}
