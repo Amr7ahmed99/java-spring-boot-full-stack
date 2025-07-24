@@ -1,0 +1,6 @@
+com/fullstack/rest/webservices/restfulwebservices/helloworld/HelloWorldBean.class
+com/fullstack/rest/webservices/restfulwebservices/todo/TodoService.class
+com/fullstack/rest/webservices/restfulwebservices/helloworld/HelloWorldController.class
+com/fullstack/rest/webservices/restfulwebservices/todo/TodoControllers.class
+com/fullstack/rest/webservices/restfulwebservices/RestfulWebServicesApplication.class
+com/fullstack/rest/webservices/restfulwebservices/todo/Todo.class
