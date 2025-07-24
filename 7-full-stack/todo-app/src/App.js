@@ -7,7 +7,8 @@ import ListTodos from './components/todo/Todos';
 import Logout from './components/todo/logout/Logout';
 import Header from './components/todo/general/header/Header';
 import Footer from './components/todo/general/footer/Footer';
-import AuthProvider, { useAuth } from './components/todo/security/AuthContext';
+import AuthProvider, { useAuth } from './components/todo/context/AuthContext';
+import TodoComponent from './components/todo/todo-page/TodoComponent';
 
 function App() {
 
@@ -39,6 +40,16 @@ function App() {
                   <ListTodos/>
                 </AuthenticatedRoute>
                 } />
+              <Route path='/todos/create' element= {
+                <AuthenticatedRoute>
+                  <TodoComponent/>
+                </AuthenticatedRoute>
+              } />'
+              <Route path='/todos/:id' element= {
+                <AuthenticatedRoute>
+                  <TodoComponent/>
+                </AuthenticatedRoute>
+              } />
               <Route path='/logout' element= {
                 <AuthenticatedRoute>
                   <Logout/>

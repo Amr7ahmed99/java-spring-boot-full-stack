@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../security/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 import './Login.css';
 
@@ -18,8 +18,8 @@ export default function Login(){
         }))
     }
 
-    const handleLogin= ()=>{
-        if(authContext.login(loginCradentials["username"], loginCradentials["password"])){
+    const handleLogin= async()=>{
+        if(await authContext.login(loginCradentials["username"], loginCradentials["password"])){
             setIsUnAuthorized(false);
             navigate(`/welcome/${loginCradentials["username"]}`);
             return

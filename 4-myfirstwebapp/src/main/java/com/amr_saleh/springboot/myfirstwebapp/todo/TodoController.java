@@ -11,7 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @SessionAttributes("username")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class TodoController {
     
     private TodoService todoService;
