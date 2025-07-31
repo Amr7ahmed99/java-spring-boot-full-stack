@@ -30,12 +30,14 @@ public class JwtAuthenticationController {
                 new UsernamePasswordAuthenticationToken(
                         jwtTokenRequest.username(), 
                         jwtTokenRequest.password());
-        
         var authentication = 
-                authenticationManager.authenticate(authenticationToken);
+                authenticationManager.authenticate(authenticationToken); // take username and get user details
+        
+        // If authentication is successful, generate the JWT token
+        // The token will include claims such as issuer, issued at time, expiration time, subject (username), and user roles/authorities
+        // The generated token can be used for subsequent requests to access protected resources
         
         var token = tokenService.generateToken(authentication);
-        
         return ResponseEntity.ok(new JwtTokenResponse(token));
     }
 }

@@ -20,23 +20,30 @@ public class JwtTokenService {
     }
 
     public String generateToken(Authentication authentication) {
-
-        var scope = authentication
-                        .getAuthorities()
-                        .stream()
-                        .map(GrantedAuthority::getAuthority)
-                        .collect(Collectors.joining(" "));
-
         var claims = JwtClaimsSet.builder()
-                        .issuer("self")
-                        .issuedAt(Instant.now())
-                        .expiresAt(Instant.now().plus(90, ChronoUnit.MINUTES))
-                        .subject(authentication.getName())
-                        .claim("scope", scope)
-                        .build();
+                .issuer("self") // Issuer of the token, can be your application name
+                .issuedAt(Instant.now()) // Token issued now
+                .expiresAt(Instant.now().plus(30, ChronoUnit.MINUTES)) // Token valid for 30 minutes
+                .subject(authentication.getName()) // Subject is the username
+                .claim("scope", createScope(authentication)) // Custom claim for user roles/authorities
+                .build(); // Build the JWT claims set
 
+        // Encode the JWT claims set into a token
+        // The JwtEncoderParameters is used to pass the claims to the encoder
+        // The getTokenValue() method retrieves the actual JWT token string
+        // This token can then be returned to the client for authentication
+        // and used in subsequent requests to access protected resources
         return this.jwtEncoder
                 .encode(JwtEncoderParameters.from(claims))
                 .getTokenValue();
+    }
+
+    // get scope from authentication (user roles/authorities)
+    private String createScope(Authentication authentication) {
+        return authentication
+                .getAuthorities()
+                .stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(" "));
     }
 }

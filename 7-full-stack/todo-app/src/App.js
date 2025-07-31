@@ -14,11 +14,7 @@ function App() {
 
   const AuthenticatedRoute= ({children})=>{
     const authContext= useAuth();
-    if(authContext.isLoggedIn){
-      return children
-    }
-
-    return <Navigate to={'/'} />
+    return authContext.isLoggedIn? children: <Navigate to={'/'} />
   }
 
   return (
